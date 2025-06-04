@@ -68,15 +68,15 @@ const [ConfirmedName, setConfirmedName] = useState("")
         
         {/* Product Carrier */}
         <div className="productCarrier grid grid-cols-1 md:grid-cols-3 gap-4 p-4 md:col-span-3">
-          <Products addToCart={addToCart} product={cake} productPricee={1000} />
-          <Products addToCart={addToCart} productPricee={2000} product={brownie} />
-          <Products addToCart={addToCart} productPricee={3000} product={waffle} />
-          <Products addToCart={addToCart} productPricee={800} product={panna} />
-          <Products addToCart={addToCart} productPricee={600} product={tiramisu} />
-          <Products addToCart={addToCart} productPricee={9000} product={meringue} />
-          <Products addToCart={addToCart} productPricee={7000} product={creme} />
-          <Products addToCart={addToCart} productPricee={800} product={baklava} />
-          <Products addToCart={addToCart} productPricee={900} product={macaron} />
+          <Products addToCart={addToCart} product={cake} productPricee={1000} productName={"cake"} />
+          <Products addToCart={addToCart} productPricee={2000} product={brownie}  productName={"brownie"} />
+          <Products addToCart={addToCart} productPricee={3000} product={waffle}  productName={"waffle"} />
+          <Products addToCart={addToCart} productPricee={800} product={panna} productName={"panna"} />
+          <Products addToCart={addToCart} productPricee={600} product={tiramisu} productName={"tiramisu"} />
+          <Products addToCart={addToCart} productPricee={9000} product={meringue} productName={"meringue"} />
+          <Products addToCart={addToCart} productPricee={7000} product={creme} productName={"creme"} />
+          <Products addToCart={addToCart} productPricee={800} product={baklava} productName={"baklava"} />
+          <Products addToCart={addToCart} productPricee={900} product={macaron}  productName={"macaron"}  />
         </div>
 
         {/* Cart Carrier */}

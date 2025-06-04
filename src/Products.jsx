@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { FaCartPlus } from "react-icons/fa";
 import { FaCircleMinus, FaCirclePlus } from "react-icons/fa6";
 
-const Products = ({ addToCart, product, productPricee }) => {
+const Products = ({ addToCart, product, productPricee, productName }) => {
+  const capitalizedName = productName.charAt(0).toUpperCase() + productName.slice(1);
   const [isSelected, setIsSelected] = useState(false);
   const [prodCart, setProdCart] = useState(0);
 
@@ -16,12 +17,12 @@ const Products = ({ addToCart, product, productPricee }) => {
     }
   };
 
-  const getProductName = () => {
-    if (typeof product !== "string") return "Unknown Product"; // Handle invalid cases
-    const rawName = product.split("-"); // Split by dash
-    if (rawName.length < 2) return "Unknown"; // Ensure correct format
-    return rawName[1].charAt(0).toUpperCase() + rawName[1].slice(1); // Capitalize first letter
-  };
+  // const getProductName = () => {
+  //   if (typeof product !== "string") return "Unknown Product"; // Handle invalid cases
+  //   const rawName = product.split("-"); // Split by dash
+  //   if (rawName.length < 2) return "Unknown"; // Ensure correct format
+  //   return rawName[1].charAt(0).toUpperCase() + rawName[1].slice(1); // Capitalize first letter
+  // };
 
   const sendToCart = () => {
     if (prodCart > 0 && productPricee) {
@@ -29,7 +30,7 @@ const Products = ({ addToCart, product, productPricee }) => {
       const quantity = prodCart;
 
       const order = {
-        name: getProductName(),
+        name: capitalizedName,
         price: price,
         quantity: quantity,
         total: price * quantity,
@@ -56,7 +57,7 @@ const Products = ({ addToCart, product, productPricee }) => {
           onClick={sendToCart}
           className="cursor-pointer rounded-2xl w-30 border-4 px-4 py-2 bg-pink-500 text-white md:text-[8px] md:px-2 md:py-1"
         >
-          <FaCartPlus className="w-6 mx-auto md:w-2" />
+          <FaCartPlus className="w-6 mx-auto md:w-8" />
           Add to Cart {`(${prodCart})`}
         </button>
 
@@ -76,7 +77,7 @@ const Products = ({ addToCart, product, productPricee }) => {
           </button>
         </div>
       </div>
-      <h3 className="font-extrabold text-pink-500 text-center">{getProductName()}</h3>
+      <h3 className="font-extrabold text-pink-500 text-center mt-2">{capitalizedName}</h3>
       <h4 className="font-bold text-center text-gray-400">{productPricee}</h4>
     </div>
   );
