@@ -4,7 +4,8 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-   base: '/Sweet-Cart/',
-  plugins: [react(), tailwindcss()]
+  
+  plugins: [react(), tailwindcss()],
+  base: "/Mini-Store/"
  
 })
